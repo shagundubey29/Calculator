@@ -4,114 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculator</title>
-    <style>
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(back.jpg);
-}
-section{
-    display : grid;
-    grid-template-rows : repeat(6 , 1fr);
-    grid-template-columns : repeat(4 , 1fr );
-    width : 50%;
-    margin : 0 auto;
-    padding : 7rem;
-}
-.input{
-    box-shadow: 0 0 10px 10px rgb(72, 108, 154,0.5);
-    border: 1px solid rgb(72, 108, 154,0.5);
-}
-.result{
-    grid-row : 1/2;
-    grid-column : 1/5;
-    background-color : #000000;
-    color : white;
-    padding : 20px;
-    text-align : right;
-    font-size : 2rem;
-    font-family : monospace;
-
-/*   width: 93%; */
-}
-.result input:hover{
-    background-color:black;
-}
-button{
-    padding : 20px;
-    font-size : 2rem;
-    font-weight : bold;
-    transition-duration : 0.4s;
-    border : 1.5px solid rgba(9, 30, 58, 0.5); 
-    cursor : pointer;
-    background: #ADA996;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-}
-button:hover{
-    /* background-color: #999999;  */
-    background: #abbaab;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-}
-button:active {
-    /* background-color : #737373; */
-    background: #304352;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #d7d2cc, #304352);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #d7d2cc, #304352); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-.mustard{
-    /* background-color : #fc9803; */
-    background: #ffe259;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #ffa751, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ffa751, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    color : white;
-}
-.mustard:hover{
-    /* background-color : #ca7a02; */
-    background: #f12711;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-.mustard:active{
-    /* background-color : #975b02; */
-    background: #fc4a1a;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-.input{
-    grid-row : 2/7;
-    grid-column : 1/5;
-    display : grid;
-    grid-template-rows : repeat(5 , 1fr);
-    grid-template-columns : repeat(4, 1fr);
-}
-.span3{
-    grid-column : span 3;
-    grid-row : span 1;
-}
-.span2{
-    grid-column : span 2;
-    grid-row : span 1;
-}
-.span1{
-    grid-column : span 1;
-    grid-row : span 1;
-}
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <section class="container">
@@ -136,26 +29,8 @@ background: linear-gradient(to top, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Fir
             <button class = "mustard" onclick="calculator()"> = </button>
         </div>
         </section>
-        <script>
-            function add(data){
-                let previous = document.getElementById('result').value;
-                document.getElementById('result').value = previous + data;  
-            }
-            function calculator (){
-                let answer = document.getElementById('result').value;
-                let ans = eval(answer);
-                document.getElementById('result').value = ans;
-            }
-            function erase(){
-                document.getElementById('result').value = "0";
-            }
-            function lastDelete (){
-                let lengthStr = document.getElementById('result').value;
-                const display = lengthStr.substring(0,lengthStr.length-1);
-                document.getElementById('result').value = display;
-            }
-        </script>
-        <script type="text/javascript" src="vanilla-tilt.js"></script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript" src="lib/vanilla-tilt.js"></script>
         <script type="text/javascript">
             VanillaTilt.init(document.querySelector(".input"), {
                 max: 35,
